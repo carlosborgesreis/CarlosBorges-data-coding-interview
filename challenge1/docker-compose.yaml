@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  de_challenge:
+    image: postgres:11
+    restart: 'always'
+    ports: 
+      - '5432:5432'
+    volumes:
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'Password1234**'
+      POSTGRES_DB: 'dw_flights'
